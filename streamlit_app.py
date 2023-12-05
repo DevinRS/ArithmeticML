@@ -15,7 +15,7 @@ selected = option_menu("Main Menu", ["Camera Mode", 'Test Mode'],
 st.title("Operator Recognition")
 
 
-model = tf.keras.models.load_model('model4.h5')
+model = tf.keras.models.load_model('model.h5')
 
 
 def process_image(image):
