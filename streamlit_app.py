@@ -7,7 +7,6 @@ import cv2
 import matplotlib.pyplot as plt
 import convert_to_tfdataset
 from streamlit_option_menu import option_menu
-from streamlit_back_camera_input import back_camera_input
 
 
 selected = option_menu("Main Menu", ["Video Mode", 'Camera Mode', 'Test Mode'], default_index=0, orientation="horizontal")
@@ -46,7 +45,7 @@ if selected == "Video Mode":
     st.subheader(model.predict(image, verbose=0)[0][0])
 
 if selected == "Camera Mode":
-    image = back_camera_input()
+    image = st.camera_input("Camera")
     if image:
         image = process_image(image)
         image = preprocessor(image)
