@@ -8,3 +8,4 @@ matplotlib
 opencv-python-headless
 scikit-learn
 alive-progress
+streamlit-back-camera-input
