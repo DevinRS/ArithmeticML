@@ -7,10 +7,10 @@ import cv2
 import matplotlib.pyplot as plt
 import convert_to_tfdataset
 from streamlit_option_menu import option_menu
+from streamlit_back_camera_input import back_camera_input
 
 
-selected = option_menu("Main Menu", ["Camera Mode", 'Test Mode'], 
-    icons=['house', 'gear'], menu_icon="cast", default_index=0, orientation="horizontal")
+selected = option_menu("Main Menu", ["Video Mode", 'Camera Mode', 'Test Mode'], default_index=0, orientation="horizontal")
 
 st.title("Operator Recognition")
 
@@ -37,13 +37,21 @@ def preprocessor(image):
     image = image.reshape(1, 28, 84, 1)
     return image
 
-if selected == "Camera Mode":
+if selected == "Video Mode":
     image = camera_input_live()
     st.image(image)
     image = process_image(image)
     image = preprocessor(image)
     st.image(image)
     st.subheader(model.predict(image, verbose=0)[0][0])
+
+if selected == "Camera Mode":
+    image = back_camera_input()
+    if image:
+        image = process_image(image)
+        image = preprocessor(image)
+        st.image(image)
+        st.subheader(model.predict(image, verbose=0)[0][0])
 
 if selected == "Test Mode":
     X_train, y_train, X_test, y_test = convert_to_tfdataset.with_operator_dataset(k=1)
