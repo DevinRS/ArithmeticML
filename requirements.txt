@@ -2,7 +2,7 @@ streamlit
 tensorflow
 numpy
 pillow
-camera_input_live
-streamlit_option_menu
+streamlit-camera-input-live
+streamlit-option-menu
 matplotlib
 cv2
