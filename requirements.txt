@@ -6,5 +6,5 @@ streamlit-camera-input-live
 streamlit-option-menu
 matplotlib
 opencv-python-headless
-sklearn
+scikit-learn
 alive-progress
