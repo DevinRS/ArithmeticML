@@ -5,4 +5,4 @@ pillow
 streamlit-camera-input-live
 streamlit-option-menu
 matplotlib
-opencv-python
+opencv-python-headless
