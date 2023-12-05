@@ -1,0 +1,8 @@
+streamlit
+tensorflow
+numpy
+pillow
+camera_input_live
+streamlit_option_menu
+matplotlib
+cv2
