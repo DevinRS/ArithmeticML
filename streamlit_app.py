@@ -26,11 +26,7 @@ def preprocessor(image):
     # change image array to grayscale
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     # resize image but don't stitch it, don't keep aspect ratio
-    # image = cv2.resize(image, (84, 28), interpolation=cv2.INTER_AREA)
-    image = image[:, 28:112]
-    # enhance the contrast of the image
-    # clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
-    # image = clahe.apply(image)
+    image = cv2.resize(image, (84, 28), interpolation=cv2.INTER_AREA)
     # normalize image
     image = image / 255.0
     # reshape image (my model is trained on 28x84x1)
