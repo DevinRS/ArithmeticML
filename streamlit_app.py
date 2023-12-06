@@ -35,11 +35,12 @@ def preprocessor(image):
 
 if selected == "Video Mode":
     image = camera_input_live()
-    st.image(image)
-    image = process_image(image)
-    image = preprocessor(image)
-    st.image(image)
-    st.subheader(model.predict(image, verbose=0)[0][0])
+    if image:
+        st.image(image)
+        image = process_image(image)
+        image = preprocessor(image)
+        st.image(image)
+        st.subheader(model.predict(image, verbose=0)[0][0])
 
 if selected == "Camera Mode":
     image = st.camera_input("Camera")
